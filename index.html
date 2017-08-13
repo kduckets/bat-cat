@@ -46,14 +46,16 @@ table, th, td {
 <script type="text/javascript">
     function storeValues(form)
    {
+    if(!localStorage.getItem('name')){
     localStorage.setItem('name', form.name.value);
+    }
     var high_score = 0;
     if(localStorage.getItem('me.save.topSteps')){
       high_score = localStorage.getItem('me.save.topSteps');
     }
 
-     firebase.database().ref('users/' + form.name.value).set({
-       name: form.name.value,
+     firebase.database().ref('users/' + localStorage.getItem('name')).set({
+       name: localStorage.getItem('name'),
        score: high_score
      });
      console.log('got here, ' + form.name.value);
