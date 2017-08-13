@@ -1,6 +1,6 @@
 game.PlayScreen = me.ScreenObject.extend({
     init: function() {
-        me.audio.play("theme", true);
+        //me.audio.play("theme", true);
         // lower audio volume on firefox browser
         var vol = me.device.ua.indexOf("Firefox") !== -1 ? 0.3 : 0.5;
         me.audio.setVolume(vol);
@@ -10,7 +10,7 @@ game.PlayScreen = me.ScreenObject.extend({
     onResetEvent: function() {
         me.game.reset();
         me.audio.stop("theme");
-        if (game.data.muted){
+        if (!game.data.muted){
             me.audio.play("theme", true);
         }
 
