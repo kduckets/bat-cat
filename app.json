@@ -1,0 +1,7 @@
+{
+  "name": "Bat Cat",
+  "description": "The Adventures of Bat Cat",
+  "repository": "https://github.com/kduckets/bat-cat",
+  "logo": "https://raw.githubusercontent.com/ellisonleao/clumsy-bird/gh-pages/data/img/touch-icon-iphone.png",
+  "keywords": ["grunt", "melonjs", "games"]
+}
