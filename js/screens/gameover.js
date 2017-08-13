@@ -11,6 +11,7 @@ game.GameOverScreen = me.ScreenObject.extend({
             steps: game.data.steps
         };
         me.save.add(this.savedData);
+        console.log(this.savedData);
 
         if (!me.save.topSteps) me.save.add({topSteps: game.data.steps});
         if (game.data.steps > me.save.topSteps) {
@@ -67,8 +68,8 @@ game.GameOverScreen = me.ScreenObject.extend({
                     [0, 0, me.game.viewport.width/2, me.game.viewport.height/2]
                 );
                 this.font = new me.Font('gamefont', 40, 'black', 'left');
-                this.steps = 'Steps: ' + game.data.steps.toString();
-                this.topSteps= 'Higher Step: ' + me.save.topSteps.toString();
+                this.steps = 'Score: ' + game.data.steps.toString();
+                this.topSteps= 'Your best score: ' + me.save.topSteps.toString();
             },
 
             draw: function (renderer) {

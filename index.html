@@ -17,23 +17,68 @@
 
         <meta property="og:title" content="Bat Cat"/>
 
-        <meta property="og:site_name" content="Clumsy Bird - MelonJS"/>
+        <meta property="og:site_name" content="Bat Cat - MelonJS"/>
 
-        <!-- Twitter Card -->
-        <!-- <meta name="twitter:hashtag" content="clumsybird" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@ellisonleao" />
-        <meta name="twitter:creator" content="@ellisonleao" />
-        <meta name="twitter:title" content="Clumsy Bird" />
-        <meta name="twitter:description" content="A Flappy Bird melonJS clone" /> -->
+<style>
+table {
+    border-collapse: collapse;
+    width:20%;
+}
 
-        <!-- Humans -->
-        <!-- <link rel="author" href="humans.txt" /> -->
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC2arfd1XPZrggXv3POInBYW4PFc3VI4kE",
+    authDomain: "bat-cat-470cd.firebaseapp.com",
+    databaseURL: "https://bat-cat-470cd.firebaseio.com",
+    projectId: "bat-cat-470cd",
+    storageBucket: "bat-cat-470cd.appspot.com",
+    messagingSenderId: "791992896980"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+    function storeValues(form)
+   {
+    localStorage.setItem('name', form.name.value);
+    var high_score = 0;
+    if(localStorage.getItem('me.save.topSteps')){
+      high_score = localStorage.getItem('me.save.topSteps');
+    }
+
+     firebase.database().ref('users/' + form.name.value).set({
+       name: form.name.value,
+       score: high_score
+     });
+     console.log('got here, ' + form.name.value);
+   }
+
+
+</script>
+
     </head>
 
     <body>
+      <form action="#" onsubmit="storeValues(this);return false">
+      <fieldset>
+      <label>Enter your name: </label><span><input type="text" size="32" name="name" value=""></span>
+
+      <input type="submit" value="Play Bat Cat!">
+      </fieldset>
+      </form>
+
+
+
+
         <!-- Canvas placeholder -->
         <div id="screen"></div>
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
         <!-- melonJS Library -->
         <script type="text/javascript" src="js/melonJS-min.js" ></script>
@@ -43,6 +88,34 @@
                 game.onload();
             });
         </script>
+
+<div align="center">
+
+<table id="ex-table">
+<h2>Scoreboard</h2>
+  <tr id="tr">
+
+    <th>Name</th>
+    <th>Score</th>
+ </table>
+
+ </div>
+
+<script>
+    firebase.database().ref('users/').orderByChild('score').limitToLast(10).on("value", function (snapshot) {
+        if(snapshot.exists()){
+            var content = '';
+            snapshot.forEach(function(child){
+                var val = child.val();
+                content +='<tr>';
+                content += '<td>' + val.name + '</td>';
+                content += '<td>' + val.score + '</td>';
+                content += '</tr>';
+            });
+            $('#ex-table').append(content);
+        }
+    });
+</script>
 
     </body>
 </html>
