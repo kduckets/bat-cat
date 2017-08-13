@@ -59,6 +59,14 @@ table, th, td {
      console.log('got here, ' + form.name.value);
    }
 
+   window.onload = function () {
+
+        if (localStorage.getItem('name'))
+            document.getElementById('name').style.display = 'none';
+        else
+            document.getElementById('name').style.display = 'block';
+
+}
 
 </script>
 
@@ -68,8 +76,9 @@ table, th, td {
       <div id="form" align="center">
       <form id="name_form" action="#" onsubmit="storeValues(this);return true">
       <fieldset>
+        <div id="name">
       <label>Enter your name: </label><span><input type="text" size="32" name="name" value=""></span>
-
+       </div>
       <input type="submit" value="Submit my high score!">
       </fieldset>
       </form>
