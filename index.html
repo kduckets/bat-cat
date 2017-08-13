@@ -18,6 +18,7 @@
         <meta property="og:title" content="Bat Cat"/>
 
         <meta property="og:site_name" content="Bat Cat - MelonJS"/>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
 <style>
 table {
@@ -39,6 +40,10 @@ table, th, td {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+
 }
 </style>
 
@@ -127,6 +132,9 @@ table, th, td {
 
  </div>
 
+<div align="center">
+ <a href="https://stephandkev.com" class="button">Back to Steph and Kev's Wedding Website</a>
+</div>
 <script>
     firebase.database().ref('users/').orderByChild('order').limitToLast(10).on("value", function (snapshot) {
         if(snapshot.exists()){
