@@ -26,7 +26,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid white;
 }
 </style>
 
@@ -64,14 +64,16 @@ table, th, td {
 
     </head>
 
-    <body>
-      <form action="#" onsubmit="storeValues(this);return false">
+    <body style="background-color:black !important">
+      <div id="form" align="center">
+      <form id="name_form" action="#" onsubmit="storeValues(this);return true">
       <fieldset>
       <label>Enter your name: </label><span><input type="text" size="32" name="name" value=""></span>
 
-      <input type="submit" value="Play Bat Cat!">
+      <input type="submit" value="Submit my high score!">
       </fieldset>
       </form>
+    </div>
 
 
 
