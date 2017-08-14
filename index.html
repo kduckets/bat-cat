@@ -71,14 +71,14 @@ body{
     if(localStorage.getItem('me.save.topSteps')){
       high_score = localStorage.getItem('me.save.topSteps');
     }
-
+     if(localStorage.getItem('name')){
      firebase.database().ref('users/' + localStorage.getItem('name')).set({
        name: localStorage.getItem('name'),
        score: high_score,
        order: -high_score
      });
-     console.log('got here, ' + form.name.value);
    }
+ }
 
    window.onload = function () {
 
