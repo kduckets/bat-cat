@@ -135,7 +135,7 @@ body{
  <a href="http://stephandkev.com" class="button">Back to Steph and Kev's Wedding Website</a>
 </div>
 <script>
-    firebase.database().ref('users/').orderByChild('order').limitToLast(10).on("value", function (snapshot) {
+    firebase.database().ref('users/').orderByChild('order').limitToLast(30).on("value", function (snapshot) {
         if(snapshot.exists()){
             var content = '';
             snapshot.forEach(function(child){
