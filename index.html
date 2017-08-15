@@ -6,6 +6,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="120x120" href="data/img/touch-icon-iphone-retina.png"/>
         <link rel="shortcut icon" href="data/img/favicon.ico">
         <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -30,21 +31,9 @@ table {
 table, th, td {
     border: 1px solid white;
 }
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
 body{
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: #003c66 !important;
-
-
+  background-color: #195279 !important;
 }
 </style>
 
@@ -94,15 +83,20 @@ body{
     </head>
 
     <body>
+
       <div>
+        <header id="header" class="alt">
+           <div class="logo"><a href="http://stephandkev.com">Steph and Kev<span> 04.21.18</span></a></div>
+         </header>
+
       <div id="form" align="center">
       <form id="name_form" action="#" onsubmit="storeValues(this);return true">
-      <fieldset>
-        <div id="name">
-      <label>Name: </label><span><input type="text" size="32" name="name" value=""></span>
+
+        <div id="name" align="center" style="width:50%">
+      <span><input type="text" size="32" name="name" placeholder="Enter your name" value=""></span>
        </div>
       <input type="submit" class="button" value="Submit my high score!">
-      </fieldset>
+
       </form>
     </div>
 
@@ -125,7 +119,7 @@ body{
 <div align="center">
 
 <table id="ex-table">
-<h1>Scoreboard</h1>
+<h1 style="font-family:'Source Sans Pro', sans-serif; !important">Scoreboard</h1>
 <h3>High score gets a prize at the wedding!
   <tr id="tr">
 
@@ -154,5 +148,6 @@ body{
     });
 </script>
 </div>
+
     </body>
 </html>
